@@ -1,7 +1,5 @@
 pipeline {
-	agent {	
-		label 'pipeline-1'
-		}
+	agent 
 	stages {
 		stage("SCM") {
 			steps {
@@ -25,7 +23,8 @@ pipeline {
 	
 		
 		}
-		
+	}
+}
 	
 
 
