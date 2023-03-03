@@ -5,7 +5,7 @@ pipeline {
 	stages {
 		stage("SCM") {
 			steps {
-				git 'https://github.com/wssrronak/java-docker-app.git'
+				git 'https://github.com/jitu9772/java-docker-app.git'
 				}
 			}
 
@@ -54,14 +54,7 @@ pipeline {
 					}
 				}	
 		}
-		stage("Prod Env") {
-			steps {
-			 sshagent(['ubuntu']) {
-			    sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.140.187 sudo docker rm -f $(sudo docker ps -a -q)' 
-	                    sh "ssh -o StrictHostKeyChecking=no ubuntu@65.2.140.187 sudo docker run  -d  -p  49153:8080  srronak/javatest-app:$BUILD_TAG"
-				}
-			}
-		}
+		
 	}
 }
 
